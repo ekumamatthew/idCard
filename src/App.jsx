@@ -10,6 +10,9 @@ function App() {
   const [email, setEmail] = useState("");
   const [department, setDepartment] = useState("Computer Science");
   const [image, setImage] = useState("");
+  const [data, setData] = useState(
+    JSON.parse(localStorage?.getItem("IdValue"))
+  );
 
   const value = {
     name: name,
@@ -18,20 +21,19 @@ function App() {
     phone: phone,
     email: email,
     department: department,
-    image: image,
+    image: "C:/Users/USER/Pictures/olisa-preview.png",
   };
   async function generate(e) {
     e.preventDefault();
     try {
+      setData(value);
+      console.log(value);
       localStorage.setItem("IdValue", JSON.stringify(value));
-      alert("Details Changed");
+      alert("Generated Successfully!");
     } catch (error) {
       console.log(error);
     }
   }
-
-  const data = JSON.parse(localStorage?.getItem("IdValue"));
-  console.log(data);
 
   return (
     <div className="w-full flex flex-col items-start">
@@ -158,10 +160,10 @@ function App() {
               </label>
               <div className="relative ">
                 <input
-                  name="Department"
-                  id=""
+                  name="image"
+                  id="image"
                   onChange={(e) => {
-                    setImage(e.target.value);
+                    console.log(e.target.files[0]);
                   }}
                   type="file"
                   placeholder="Image"
@@ -194,7 +196,7 @@ function App() {
               <p className="text-center uppercase text-[9px] md:text-[20px] leading-2">
                 institute of science and technology
               </p>
-              <p className="text-center text-[9px] md:text-[12px] capitalize leading-[8px] md:leading-3">
+              <p className="text-center text-[9px] md:text-[12px] capitalize leading-[8px]  text-black md:leading-3">
                 Ohatewe-Amagu ikwo, ebonyi state
               </p>
               <p className="text-center capitalize text-[8px] md:text-[10px] text-red-500">
@@ -205,13 +207,13 @@ function App() {
           <div className="flex flex-row text-black relative">
             <div className="absolute left-[15px] md:left-[30px] top-[17px] md:top-[25px] w-full items-start  gap-1 flex-col flex">
               <p className="font-bold whitespace-nowrap text-[13px] md:text-[25px]">
-                Name: {data ? data.name : "John Alex Philips"}
+                Name: {data ? data.name.toUpperCase() : "John Alex Philips"}
               </p>
               <p className="whitespace-nowrap font-bold text-[11px] md:text-[16px]">
-                Reg-No: {data ? data.regNo : "17384-3764-3874"}
+                REG. NO: {data ? data.regNo.toUpperCase() : "17384-3764-3874"}
               </p>
               <p className="whitespace-nowrap font-bold text-[11px] md:text-[16px]">
-                Department: {data ? data.department : "Computer Science"}
+                DEPARTMENT: {data ? data.department : "Computer Science"}
               </p>
             </div>
           </div>
@@ -230,21 +232,22 @@ function App() {
                 </span>
               </p>
               <p className="font-400 text-[12px] md:text-[18px]">
-                Expiry Date:
+                <i className="fa fa-clock-o" />
                 <span className="ml-[15px]">
+                  Expiry Date:
                   {data ? data.expiryDate : "October 17 2023 "}
                 </span>
               </p>
             </div>
           </div>
           <div className="absolute top-[33%]  right-[15px] md:top-[30%] md:right-[28px]">
-            <div className=" rounded-full md:h-[150px] h-[100px] w-[100px]  md:w-[150px] p-[10px] ml-4 bg-gradient-to-r from-green-800 to-red-500">
+            <div className="rounded-full md:h-[150px] h-[100px] w-[100px]  md:w-[150px] p-[8px] ml-4 bg-gradient-to-r from-green-800 to-red-500">
               <img
                 className="rounded-full h-full w-full "
-                src={data ? data.image : "/logomatins.jpg"}
+                src={"/avatar.png"}
               />
             </div>
-            <p className="font-[800] text-[15px] md:text-[25px] text-transparent/20">
+            <p className="font-[800] text-[15px] md:text-[25px] text-transparent/50">
               STUDENT ID
             </p>
           </div>
@@ -270,7 +273,7 @@ function App() {
               <br /> at the address overleaf or call the number
               <br />
               <span className="md:text-[20px] text-[12px] font-[500]">
-                08125410120
+                08166905529
               </span>
             </i>
           </div>
