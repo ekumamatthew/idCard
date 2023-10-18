@@ -3,20 +3,20 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [firstName, setFirstName] = useState("Grace");
-  const [secondName, setSecondName] = useState("Ugama");
-  const [thirdName, setThirdName] = useState("Kalu");
-  const [sex, setSex] = useState("female");
-  const [age, setAge] = useState(24);
+  const [name, setName] = useState("");
+  const [regNo, setRegNo] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [department, setDepartment] = useState("Computer Science");
   const [image, setImage] = useState("");
 
   const value = {
-    firstName: firstName,
-    secondName: secondName,
-    thirdName: thirdName,
-    sex: sex,
-    age: age,
+    name: name,
+    regNo: regNo,
+    expiryDate: expiryDate,
+    phone: phone,
+    email: email,
     department: department,
     image: image,
   };
@@ -45,7 +45,7 @@ function App() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <div>
               <label htmlFor="" className="sr-only">
-                First Name
+                Name
               </label>
               <div>
                 <input
@@ -53,17 +53,17 @@ function App() {
                   type="text"
                   name=""
                   onChange={(e) => {
-                    setFirstName(e.target.value);
+                    setName(e.target.value);
                   }}
                   id=""
-                  placeholder="First Name"
+                  placeholder="Name"
                   className="block w-full px-5 py-4 text-base text-white placeholder-gray-500 bg-black rounded-md"
                 />
               </div>
             </div>
             <div>
               <label htmlFor="" className="sr-only">
-                Second Name
+                Reg No
               </label>
               <div>
                 <input
@@ -71,17 +71,17 @@ function App() {
                   type="text"
                   name=""
                   onChange={(e) => {
-                    setSecondName(e.target.value);
+                    setRegNo(e.target.value);
                   }}
                   id=""
-                  placeholder="Second Name"
+                  placeholder="Reg No"
                   className="block w-full px-5 py-4 text-base text-white placeholder-gray-500 bg-black rounded-md"
                 />
               </div>
             </div>
             <div>
               <label htmlFor="" className="sr-only">
-                Third Name
+                Department
               </label>
               <div>
                 <input
@@ -89,10 +89,10 @@ function App() {
                   type="text"
                   name=""
                   onChange={(e) => {
-                    setThirdName(e.target.value);
+                    setDepartment(e.target.value);
                   }}
                   id=""
-                  placeholder="Third Name"
+                  placeholder="Department"
                   className="block w-full px-5 py-4 text-base text-white placeholder-gray-500 bg-black rounded-md"
                 />
               </div>
@@ -100,16 +100,16 @@ function App() {
 
             <div>
               <label htmlFor="" className="sr-only">
-                Age
+                Phone
               </label>
               <div className="relative ">
                 <input
                   name="age"
                   id=""
                   type="number"
-                  placeholder="Age"
+                  placeholder="Phone"
                   onChange={(e) => {
-                    setAge(e.target.value);
+                    setPhone(e.target.value);
                   }}
                   className="block w-full px-5 py-4 text-base text-white placeholder-gray-500 bg-black rounded-md "
                 />
@@ -118,17 +118,17 @@ function App() {
             </div>
             <div>
               <label htmlFor="" className="sr-only">
-                Sex
+                Email
               </label>
               <div className="relative ">
                 <input
-                  name="sex"
+                  name="email"
                   id=""
-                  type="text"
+                  type="email"
                   onChange={(e) => {
-                    setSex(e.target.value);
+                    setEmail(e.target.value);
                   }}
-                  placeholder="Sex"
+                  placeholder="Email"
                   className="block w-full px-5 py-4 text-base text-white placeholder-gray-500 bg-black rounded-md "
                 />
                 <div className="absolute right-5 top-[30%] cursor-pointer"></div>
@@ -136,17 +136,17 @@ function App() {
             </div>
             <div>
               <label htmlFor="" className="sr-only">
-                Department
+                Expiry Date
               </label>
               <div className="relative ">
                 <input
                   name="Department"
                   id=""
                   onChange={(e) => {
-                    setDepartment(e.target.value);
+                    setExpiryDate(e.target.value);
                   }}
                   type="Text"
-                  placeholder="Department"
+                  placeholder="Expiry Date"
                   className="block w-full px-5 py-4 text-base text-white placeholder-gray-500 bg-black rounded-md "
                 />
                 <div className="absolute right-5 top-[30%] cursor-pointer"></div>
@@ -181,73 +181,101 @@ function App() {
           </div>
         </form>
       </div>
-      <div className="w-full flex flex-row gap-10 ">
-        <div className=" relative w-[700px] px-[10px] h-[350px] border-[1px] border-gray-100 rounded-[20px] flex flex-col items-start">
-          <div className="text-[18px] px-4 py-2 font-[600] items-center text-center flex flex-col w-full">
-            <p className="text-center capitalize">
-              Student Union Government Ebonyi State University Abakaliki Ebonyi
-              State (Nigeria)
-            </p>
+      <div className="w-full flex flex-col md:flex-row gap-10 ">
+        <div className=" relative  w-full md:w-[700px] h-[220px] md:h-[350px]   border-gray-100 bg-white rounded-[20px] flex flex-col items-start">
+          <div className="w-full flex flex-row items-start">
+            <div className="md:flex-[15%] flex-[20%] flex p-1">
+              <img src="/logomatins.jpg" className="rounded-[20px]" />
+            </div>
+            <div className="md:text-[22px] text-[11px] text-green-800  py-2 font-[800] items-center text-center flex flex-col w-full">
+              <p className="text-center uppercase leading-[6px] md:leading-4 ">
+                Blessed martins international
+              </p>
+              <p className="text-center uppercase text-[9px] md:text-[20px] leading-2">
+                institute of science and technology
+              </p>
+              <p className="text-center text-[9px] md:text-[12px] capitalize leading-[8px] md:leading-3">
+                Ohatewe-Amagu ikwo, ebonyi state
+              </p>
+              <p className="text-center capitalize text-[8px] md:text-[10px] text-red-500">
+                P.O. box 824 abakaliki
+              </p>
+            </div>
           </div>
-          <div className="flex flex-row">
-            <div className="relative top-[10%] ml-4 ">
+          <div className="flex flex-row text-black relative">
+            <div className="absolute left-[15px] md:left-[30px] top-[17px] md:top-[25px] w-full items-start  gap-1 flex-col flex">
+              <p className="font-bold whitespace-nowrap text-[13px] md:text-[25px]">
+                Name: {data ? data.name : "John Alex Philips"}
+              </p>
+              <p className="whitespace-nowrap font-bold text-[11px] md:text-[16px]">
+                Reg-No: {data ? data.regNo : "17384-3764-3874"}
+              </p>
+              <p className="whitespace-nowrap font-bold text-[11px] md:text-[16px]">
+                Department: {data ? data.department : "Computer Science"}
+              </p>
+            </div>
+          </div>
+          <div className="absolute w-full h-[38%] md:h-[40%] bottom-0 rounded-b-[20px] flex items-start flex-col bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))] from-green-900 to-green-600 ">
+            <div className="w-full flex gap-2 md:gap-4 absolute left-[15px] top-[10px] flex-col items-start">
+              <p className="font-400 text-[12px] md:text-[18px]">
+                <i className="fa fa-phone" />{" "}
+                <span className="ml-[15px]">
+                  {data ? data.phone : "+234 7485 455"}
+                </span>
+              </p>
+              <p className="font-400 text-[12px] md:text-[18px]">
+                <i className="fa fa-envelope" />
+                <span className="ml-[15px]">
+                  {data ? data.email : "ifenkweifeanyi@gmail.com"}
+                </span>
+              </p>
+              <p className="font-400 text-[12px] md:text-[18px]">
+                Expiry Date:
+                <span className="ml-[15px]">
+                  {data ? data.expiryDate : "October 17 2023 "}
+                </span>
+              </p>
+            </div>
+          </div>
+          <div className="absolute top-[33%]  right-[15px] md:top-[30%] md:right-[28px]">
+            <div className=" rounded-full md:h-[150px] h-[100px] w-[100px]  md:w-[150px] p-[10px] ml-4 bg-gradient-to-r from-green-800 to-red-500">
               <img
-                className="rounded-full h-[150px]  w-[150px] "
-                src={
-                  data
-                    ? data.image
-                    : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN1uPtAz1SVsV0SsMCYB9Lkd0VKTKOVIx69Q&usqp=CAU"
-                }
+                className="rounded-full h-full w-full "
+                src={data ? data.image : "/logomatins.jpg"}
               />
             </div>
-            <div className="relative ml-[30px] items-start  flex-col flex gap-3 top-[20%]">
-              <p className="font-bold text-[20px]">
-                Name:{" "}
-                <span className="text-[20px]">
-                  {data
-                    ? data.firstName +
-                      " " +
-                      data.secondName +
-                      " " +
-                      data.thirdName
-                    : "John Doe Alex"}
-                </span>
-              </p>
-              <p className="font-bold text-[20px]">
-                Age: <span className="text-[20px]">{data ? data.age : 20}</span>
-              </p>
-              <p className="font-bold text-[20px]">
-                Sex:{" "}
-                <span className="text-[20px]">{data ? data.sex : "male"}</span>
-              </p>
-              <p className="font-bold text-[20px]">
-                Department:{" "}
-                <span className="text-[20px]">
-                  {data ? data.department : "computer science"}
-                </span>
-              </p>
-            </div>
-          </div>
-          <div className="relative w-full -bottom-20  ">
-            <i>
-              Motto: Excelence our virture, Raising future start for a greater
-              generation
-            </i>
+            <p className="font-[800] text-[15px] md:text-[25px] text-transparent/20">
+              STUDENT ID
+            </p>
           </div>
         </div>
 
-        <div className=" relative w-[700px] h-[350px] px-[20px] border-[1px] border-gray-100 rounded-[20px] flex flex-col items-start">
-          <div className="text-[20px] p-4 font-[600] items-center text-center flex flex-col w-full">
-            <p className="text-center capitalize">
-              Student Union Government Ebonyi State University Abakaliki Ebonyi
-              State (Nigeria)
-            </p>
+        <div className=" relative w-full md:w-[700px] h-[220px] md:h-[350px] px-[20px] bg-white border-gray-100 rounded-[20px] flex gap-[-20px] flex-col items-center justify-center">
+          <div className=" ">
+            <img
+              src="/logomatins.jpg"
+              className="rounded-[20px] md:h-[90px] w-[50px] h-[50px] md:w-full"
+            />
           </div>
-          <div className="text-[15px] p-4 font-[500] items-center text-center flex flex-col w-full">
-            <p className="text-center capitalize">
-              Holy Trinity College Of School and Sciencess Abakaliki Ebonyi
-              State (Nigeria)
+          <div className="md:text-[20px] text-[10px] p-4 font-[400] mb-4 text-black items-center text-center flex flex-col w-full">
+            <i className="text-center md:leading-6 text-[10px]  md:text-[18px]">
+              The person whose name and photograph appeared at the front of this
+              card is a student of
+            </i>
+            <p className="text-center uppercase text-[11px] md:text-[22px] font-[700] md:font-[800] md:leading-6 text-green-800 ">
+              Blessed martins international institute of scienceand technology
             </p>
+            <i className="text-center md:leading-6 text-[10px] md:text-[18px]">
+              In case of lost or found, please report to the school
+              <br /> at the address overleaf or call the number
+              <br />
+              <span className="md:text-[20px] text-[12px] font-[500]">
+                08125410120
+              </span>
+            </i>
+          </div>
+          <div className="absolute bottom-0 bg-green-800 w-full rounded-b-[20px] h-[14%]">
+            Barcode
           </div>
         </div>
       </div>
